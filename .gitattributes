@@ -1,0 +1,4 @@
+data/data/BZCAT_combined.csv filter=lfs diff=lfs merge=lfs -text
+data/data/BZCAT_all_features.csv filter=lfs diff=lfs merge=lfs -text
+data/data/BZCAT_clusters.csv filter=lfs diff=lfs merge=lfs -text
+data/data/sed_residents.csv filter=lfs diff=lfs merge=lfs -text
