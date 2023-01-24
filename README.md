@@ -12,9 +12,9 @@ The general clustering workflow therefore is as follows:
 * probabilistic PCA to guess the missing values;
 * classical PCA to reduce dependent values into one primary component
 * general dimensionality reduction using PCA or t-SNE (the results of both are compared)
-* clustering: k-means
+* clustering: k-means or Gaussian mixture 
 
-Actually, I use PCA as a first approach and then refine this result with t-SNE so that the t-SNE perplexity parameter is choosen having in mind the number of clusters in the "baseline" model. 
+Actually, I use 'PCA + k-means' as a first approach and then refine this result with the 't-SNE + Gaussian mix' so that t-SNE parameters are choosen having in mind the "baseline" model.
 
 Some other algorithms have also been tested to look for the best metrics, but they are not included in the final noteooks for clarity.
 
