@@ -11,10 +11,8 @@ It is worth noting that blazars is quite a homogenious class of AGNs, which has 
 The general clustering workflow therefore is as follows:
 * probabilistic PCA to guess the missing values;
 * classical PCA to reduce dependent values into one primary component
-* general dimensionality reduction using PCA or t-SNE (the results of both are compared)
+* general dimensionality reduction using PCA 
 * clustering: k-means or Gaussian mixture 
-
-Actually, I use 'PCA + k-means' as a first approach and then refine this result with the 't-SNE + Gaussian mix' so that t-SNE parameters are choosen having in mind the "baseline" model.
 
 Some other algorithms have also been tested to look for the best metrics, but they are not included in the final noteooks for clarity.
 
