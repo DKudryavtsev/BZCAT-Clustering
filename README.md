@@ -30,12 +30,13 @@ The dataset has been combined from the following sources:
 * Spectral energy distributions (SEDs) from [SED Builder](https://tools.ssdc.asi.it/SED/)
 
 The raw data are not provided here. The processed datasets are:
-* [BZCAT_combined.csv](./data/BZCAT_combined.csv): the dataset after the raw data combination;
+* [BZCAT_RESULT.csv](./data/BZCAT_RESULT.csv): the main resulting dataset with ordered features and cluster labels, the other datasets below are needed to run the notebooks, also they contains some "secondary" features;
+* [BZCAT_combined.csv](./data/BZCAT_combined.csv): the dataset after combination of raw data;
 * [BZCAT_all_features.csv](./data/BZCAT_all_features.csv): the dataset after feature preparation;
-* [BZCAT_clusters.csv](./data/BZCAT_clusters.csv): final dataset with cluster labels;
+* [BZCAT_clusters.csv](./data/BZCAT_clusters.csv): dataset with cluster labels;
 * [seds_residents.csv](./data/seds_residents.csv): SEDs from the SED Builder resident catalogs (the file is needed to run feature_engeneering.ipynb)
 
-Some data have not been used in the clustering itself because of their scarcity, but they can be used in further analysis.
+Some features have not been used in the clustering itself because of their scarcity, but they can be used in further analysis.
 
 
 ## 3. Project stages and files

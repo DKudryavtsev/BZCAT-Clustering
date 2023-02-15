@@ -133,6 +133,7 @@ data/**
 !data/BZCAT_all_features.csv
 !data/BZCAT_clusters.csv
 !data/seds_residents.csv
+!data/BZCAT_RESULT.csv
 
 messy_staff/
 
