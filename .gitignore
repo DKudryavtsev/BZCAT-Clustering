@@ -129,11 +129,11 @@ dmypy.json
 .pyre/
 
 data/**
-!data/BZCAT_combined.csv
-!data/BZCAT_all_features.csv
-!data/BZCAT_clusters.csv
-!data/seds_residents.csv
-!data/BZCAT_RESULT.csv
+#!data/BZCAT_combined.csv
+#!data/BZCAT_all_features.csv
+#!data/BZCAT_clusters.csv
+#!data/seds_residents.csv
+#!data/BZCAT_RESULT.csv
 
 messy_staff/
 

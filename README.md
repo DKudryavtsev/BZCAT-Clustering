@@ -2,19 +2,20 @@
 
 ## 1. About the project
 
-This is a repository for the cluster analysis of the blazars from the BZCAT catalog (Massaro et al., 2015, Ap&SS, 357, 75). The aim is to divide the objects into groups with more or less similar properties to further analyze the differences between them and possibly obtain some insighths into the nature of this type of active galactic nuclei (AGNs). 
+This is a repository for the cluster analysis of the blazars from the Roma-BZCAT catalog (Massaro et al., 2015, Ap&SS, 357, 75). The aim is to divide the objects into groups with more or less similar properties to further analyze the differences between them and possibly obtain some insighths into the nature of this type of active galactic nuclei (AGNs). 
 
-The feature space for the clustering has been choosen with a simple approach: "all" available independent features. As well, the dependent ones are used if they are of the same nature, in this case the first PCA component of them is the feature. 
+The feature space for the clustering has been choosen with a simple general approach: all possible features related to the physics of the objects. We'll discuss the selection of characteristics for the model dataset in the paper currently prepared. 
 
-It is worth noting that blazars is quite a homogenious class of AGNs, which has been some kind of a challenge for the project. The other problem is a deficiency of data: out of the 3561 blazars from the catalog, only 800 objects had all the "clustering features" measured. To fill the missing data the probabilistic PCA approach have been used. I analyze both the "short" version of the catalog and the total result with the PPCA-imputed values, comparing the results. 
+It is worth noting that blazars is quite a homogenious class of AGNs, which has been some kind of a challenge for the project. The other problem is a deficiency of data: out of the 3561 blazars from the catalog, only about 800 objects had all the model dataset characteristics measured. To fill the missing data, the probabilistic PCA (pPCA) approach have been used. We analyze both the "short" version of the catalog and the total result with the pPCA-imputed values, comparing the results (about 90% consistency). 
 
-The general clustering workflow therefore is as follows:
+The general clustering workflow is as follows:
 * probabilistic PCA to guess the missing values;
-* classical PCA to reduce dependent values into one primary component
-* general dimensionality reduction using PCA 
-* clustering: k-means or Gaussian mixture 
+* PCA dimensionality reduction 
+* k-means clustering
 
 Some other algorithms have also been tested to look for the best metrics, but they are not included in the final noteooks for clarity.
+
+The project has been reported at the conference ["Modern instruments and methods in astronomy"](https://crimea-2023.crao.ru/), the proceedings is going to be published in Acta Astrophysica Taurica. We have been also preparing a paper with more detailed description of the dataset, clustering, and results.
 
 ## 2. The data
 
@@ -29,34 +30,17 @@ The dataset has been combined from the following sources:
 * Data on interstellar extinctions from the [NED database](https://ned.ipac.caltech.edu/extinction_calculator)
 * Spectral energy distributions (SEDs) from [SED Builder](https://tools.ssdc.asi.it/SED/)
 
-The raw data are not provided here. The processed datasets are:
-* [BZCAT_RESULT.csv](./data/BZCAT_RESULT.csv): the main resulting dataset with ordered features and cluster labels, the other datasets below are needed to run the notebooks, also they contains some "secondary" features;
-* [BZCAT_combined.csv](./data/BZCAT_combined.csv): the dataset after combination of raw data;
-* [BZCAT_all_features.csv](./data/BZCAT_all_features.csv): the dataset after feature preparation;
-* [BZCAT_clusters.csv](./data/BZCAT_clusters.csv): dataset with cluster labels;
-* [seds_residents.csv](./data/seds_residents.csv): SEDs from the SED Builder resident catalogs (the file is needed to run feature_engeneering.ipynb)
-
-Some features have not been used in the clustering itself because of their scarcity, but they can be used in further analysis.
+We currently don't provide the data in this repository, the final dataset is now being prepared for publication.
 
 
 ## 3. Project stages and files
 
-* The [./scrapers/](./scrapers/) folder contains the scripts used to get the data from the PanSTARRS, WISE, GALEX, NED, and SDSS catalogs. A script for the Selenium web driver has been also developed to mine the data on spectral energy distributions, "hiding behind the buttons" on the SED Builder web page. Thanks to Selenium, I can now winkle it out. :)
+* The [./scrapers/](./scrapers/) folder contains the scripts used to get the data from the PanSTARRS, WISE, GALEX, NED, and SDSS catalogs. A script for the Selenium web driver has been also developed to mine the data on spectral energy distributions, "hiding behind the buttons" on the SED Builder web page. Thanks to Selenium, we can now winkle it out. :)
 
-* [./data_comb.ipynb](./data_comb.ipynb) A notebook that combines the data. I do not provide the raw data on GitHub, so this is only for demonstration.
+* [./data_comb.ipynb](./data_comb.ipynb) A notebook that combines the data. 
 
-* [./feature_engeneering.ipynb](./feature_engeneering.ipynb) A general preprocessing with some transformations made and new features created. Most of them are of astronomical kind, and some are further used in the clustering feature space while the others are only for possible further analysis purposes. Some "pure clustering" features are also created (the "hardnesses" at the end).
+* [./feature_engeneering.ipynb](./feature_engeneering.ipynb) A general preprocessing with some transformations made and new features created. Most of them are of astronomical kind, and some are further used in the clustering feature space while the others are only for the sake of possible further analysis.
 
-* [./main_model.ipynb](./main_model.ipynb) This is the core of the project with the ML algorithms working, metrics, and preliminary analysis. I have cleaned it as much as I can from the leftovers of the working process, trying to leave only the essence of the result.
+* [./main_model.ipynb](./main_model.ipynb) This is the core of the project with the clustering, metrics, and preliminary analysis. We have cleaned it as much as we can from the leftovers of the working process, trying to leave only the essence of the result.
 
-* [sweetviz_report.ipynb](./sweetviz_report.ipynb) makes a [Sweetviz](https://pypi.org/project/sweetviz/) HTML report used for faster data reviewing and cleansing. 
-
-## 5. Running the project
-
-To run the project by yourself, you will need the [Jupiter Notebook](https://jupyter.org/) installed along with Python and some of its libraries (see [requirements.txt](./requirements.txt)). The notebooks should be runned in the following order:
-1. feature_engeneering.ipynb
-2. main_model.ipynb
-
-## 4. The results
-
-A further analysis is currently being made and a paper is being prepared where we are going to present the results and conclusions.
+* [sweetviz_report.ipynb](./sweetviz_report.ipynb) makes a [Sweetviz](https://pypi.org/project/sweetviz/) HTML report used for faster data reviewing and cleansing.
