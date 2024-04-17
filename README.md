@@ -4,7 +4,7 @@
 
 This is a repository for the cluster analysis of the blazars from the Roma-BZCAT catalog (Massaro et al., 2015, Ap&SS, 357, 75). The aim is to divide the objects into groups with more or less similar properties to further analyze the differences between them and possibly obtain some insighths into the nature of this type of active galactic nuclei (AGNs). 
 
-The feature space for the clustering has been choosen with a simple general approach: all possible features related to the physics of the objects. We'll discuss the selection of characteristics for the model dataset in the paper currently prepared. 
+The feature space for the clustering has been choosen with a simple general approach: all possible features related to the physics of the objects. We discuss the selection of characteristics for the model dataset in the paper mentioned below. 
 
 It is worth noting that blazars is quite a homogenious class of AGNs, which has been some kind of a challenge for the project. The other problem is a deficiency of data: out of the 3561 blazars from the catalog, only about 800 objects had all the model dataset characteristics measured. To fill the missing data, the probabilistic PCA (pPCA) approach have been used. We analyze both the "short" version of the catalog and the total result with the pPCA-imputed values, comparing the results (about 90% consistency). 
 
@@ -13,7 +13,7 @@ The general clustering workflow is as follows:
 * PCA dimensionality reduction 
 * k-means clustering
 
-Some other algorithms have also been tested to look for the best metrics, but they are not included in the final noteooks for clarity.
+Some other algorithms have also been tested to look for the best metrics, but they are not included in the final Jupiter notebooks for clarity.
 
 A paper with more detailed description of the dataset, clustering, and results is accepted in [Research in Astronomy and Astrophysics](https://doi.org/10.1088/1674-4527/ad3d14). The preprint is also available on [arXiv:astro-ph](https://arxiv.org/abs/2404.09667).
 
